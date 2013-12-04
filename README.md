@@ -1,0 +1,4 @@
+pirx
+====
+
+Django settings builder
