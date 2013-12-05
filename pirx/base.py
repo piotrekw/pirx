@@ -10,5 +10,5 @@ class Settings(object):
 
     def write(self):
         for name, value in self._settings.iteritems():
-            print '%s = %s' % (name.upper(), value)
+            print '%s = %s' % (name.upper(), value.__repr__())
 
