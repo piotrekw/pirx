@@ -9,7 +9,6 @@ setup(
     license='MIT',
     keywords='django settings build builder',
     url='https://github.com/piotrekw/pirx',
-    scripts=['scripts/pirx-build.py'],
     packages=['pirx']
     )
 
