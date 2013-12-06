@@ -1,6 +1,9 @@
+import collections
+
+
 class Settings(object):
     def __init__(self):
-        self._settings = {}
+        self._settings = collections.OrderedDict()
 
     def __setattr__(self, name, value):
         if name.startswith('_'):
