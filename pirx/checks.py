@@ -8,10 +8,11 @@ def host(name):
 
 def arg(name, value=None):
     args = [arg.split('=') for arg in sys.argv[1:]]
-    for arg in args:
-        if arg[0].lsplit('--') == name:
-            if len(arg) > 1:
-                return arg[1] == value
+    for arg_ in args:
+        if arg_[0].lstrip('--') == name:
+            if len(arg_) > 1:
+                return arg_[1] == value
             else:
                 return True
+    return False
 
