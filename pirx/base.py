@@ -11,7 +11,13 @@ class Settings(object):
         else:
             self._settings[name] = value
 
+    def _set_raw_value(self, value):
+        self._settings['_%d' % len(self._settings)] = value
+
     def write(self):
         for name, value in self._settings.iteritems():
-            print '%s = %s' % (name.upper(), value.__repr__())
+            if name.startswith('_'):
+                print value
+            else:
+                print '%s = %s' % (name.upper(), value.__repr__())
 
