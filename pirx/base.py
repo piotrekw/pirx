@@ -14,6 +14,10 @@ class Settings(object):
     def _set_raw_value(self, value):
         self._settings['_%d' % len(self._settings)] = value
 
+    def imp(self, module_name):
+        value = 'import %s' % module_name
+        self._set_raw_value(value)
+
     def write(self):
         for name, value in self._settings.iteritems():
             if name.startswith('_'):
