@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pirx',
-    version='0.1',
+    version='0.2',
     author='Piotr Wasilewski',
     author_email='wasilewski.piotrek@gmail.com',
     description='Django settings builder',
