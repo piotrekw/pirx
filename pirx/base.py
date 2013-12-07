@@ -11,17 +11,19 @@ class Settings(object):
         else:
             self._settings[name] = value
 
+    def __str__(self):
+        lines = []
+        for name, value in self._settings.iteritems():
+            if name.startswith('_'):
+                lines.append(value)
+            else:
+                lines.append('%s = %s' % (name.upper(), value.__repr__()))
+        return '\n'.join(lines)
+
     def _set_raw_value(self, value):
         self._settings['_%d' % len(self._settings)] = value
 
     def imp(self, module_name):
         value = 'import %s' % module_name
         self._set_raw_value(value)
-
-    def write(self):
-        for name, value in self._settings.iteritems():
-            if name.startswith('_'):
-                print value
-            else:
-                print '%s = %s' % (name.upper(), value.__repr__())
 
