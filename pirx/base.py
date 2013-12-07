@@ -1,9 +1,16 @@
 import collections
+import datetime
 
 
 class Settings(object):
+    docstring = 'Settings built with Pirx on %(datetime)s'
+
     def __init__(self):
         self._settings = collections.OrderedDict()
+        docstring = self.docstring % {
+            'datetime': datetime.datetime.now()
+            }
+        self._set_raw_value('"""%s"""' % docstring)
 
     def __setattr__(self, name, value):
         if name.startswith('_'):
