@@ -18,6 +18,11 @@ class Settings(object):
         else:
             self._settings[name] = value
 
+    def __getattr__(self, name):
+        if name in self._settings:
+            return self._settings[name]
+        super(Settings, self).__getattr__(name)
+
     def __str__(self):
         lines = []
         for name, value in self._settings.iteritems():
