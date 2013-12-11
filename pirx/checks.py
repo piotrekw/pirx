@@ -6,13 +6,12 @@ import sys
 def host(name):
     return socket.gethostname() == name
 
-def arg(name, value=None):
-    args = [arg.split('=') for arg in sys.argv[1:]]
-    for arg_ in args:
-        if arg_[0].lstrip('--') == name:
-            if len(arg_) > 1:
-                return arg_[1] == value
-            else:
-                return True
+def arg(name, expected_value=None):
+    args = [
+        arg.split('=') for arg in sys.argv[1:] if '=' in arg else (arg, None)
+    ]
+    for arg_name, arg_value in args:
+        if arg_name.lstrip('--') == name:
+            return arg_value == expected_value
     return False
 
