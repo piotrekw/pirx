@@ -13,7 +13,7 @@ def arg(name, expected_value=None):
     the expected value.
     """
     args = [
-        arg.split('=') for arg in sys.argv[1:] if '=' in arg else (arg, None)
+        arg.split('=') if '=' in arg else (arg, None) for arg in sys.argv[1:]
     ]
     for arg_name, arg_value in args:
         if arg_name.lstrip('--') == name:
