@@ -3,5 +3,5 @@ from pirx.checks import host, arg
 from pirx.utils import setting, path
 
 
-__version__ = '0.2'
+__version__ = '0.3'
 
