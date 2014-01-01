@@ -8,7 +8,7 @@ import pprint
 import sys
 
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('in_path')
     args = parser.parse_args()
@@ -43,3 +43,5 @@ if __name__ == '__main__':
         sys.stdout.write('settings.%s = %s\n' % (name.lower(), value))
     sys.stdout.write('\nprint settings')
 
+if __name__ == '__main__':
+    main()
